@@ -19,6 +19,27 @@ func Hello(name string) (string, error) {
 	return message, nil
 }
 
+// Retorna um map e um erro, sendo map um dicionario do python (chave, valor)
+// map[tipo_chave]tipo_valor
+func Hellos(names []string) (map[string]string, error) {
+	// Para criar um map voce precisa usar make() e passar o tipo de map
+	messages := make(map[string]string)
+
+	// range retorna o indice e o valor
+	// e nao queremos o range, entao "_"
+	for _, name := range names {
+		message, err := Hello(name)
+
+		if err != nil {
+			return nil, err
+		}
+
+		messages[name] = message
+	}
+
+	return messages, nil
+}
+
 func randomFormat() string {
 	formats := []string{
 		"Hi, %v. Welcome!",
