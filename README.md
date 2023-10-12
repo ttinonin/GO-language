@@ -1,0 +1,3 @@
+# Getting started GO Language
+
+I swear I'm trying...
